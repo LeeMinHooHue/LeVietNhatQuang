@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bgDark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0D1B2A"/>
+      <stop offset="100%" stop-color="#1B263B"/>
+    </linearGradient>
+    <filter id="shadowSoft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <linearGradient id="dropGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#90CAF9"/>
+      <stop offset="100%" stop-color="#42A5F5"/>
+    </linearGradient>
+    <mask id="crescentMask">
+      <rect width="1024" height="1024" fill="black"/>
+      <circle cx="680" cy="340" r="140" fill="white"/>
+      <circle cx="730" cy="320" r="140" fill="black"/>
+    </mask>
+  </defs>
+
+  <rect width="1024" height="1024" fill="url(#bgDark)"/>
+
+  <g transform="translate(0,0)">
+    <g opacity="0.95">
+      <circle cx="680" cy="340" r="140" fill="#FFE082" mask="url(#crescentMask)"/>
+    </g>
+
+    <g filter="url(#shadowSoft)">
+      <path d="M300 640
+               c0 -80 70 -140 150 -140
+               c30 -90 120 -120 190 -70
+               c80 -10 140 50 140 120
+               h6
+               c70 0 120 50 120 110
+               c0 60 -50 110 -120 110
+               H300
+               c-70 0 -120 -50 -120 -110
+               c0 -60 50 -110 120 -110
+               z" fill="#EAF1FF"/>
+    </g>
+
+    <g opacity="0.95">
+      <path d="M410 820 C 410 790 440 760 440 760 C 440 760 470 790 470 820 C 470 840 456 854 440 854 C 424 854 410 840 410 820 Z" fill="url(#dropGrad)"/>
+      <path d="M510 820 C 510 790 540 760 540 760 C 540 760 570 790 570 820 C 570 840 556 854 540 854 C 524 854 510 840 510 820 Z" fill="url(#dropGrad)"/>
+      <path d="M610 820 C 610 790 640 760 640 760 C 640 760 670 790 670 820 C 670 840 656 854 640 854 C 624 854 610 840 610 820 Z" fill="url(#dropGrad)"/>
+    </g>
+
+    <g fill="#E3F2FD" opacity="0.9">
+      <circle cx="220" cy="240" r="2.5"/>
+      <circle cx="260" cy="300" r="1.8"/>
+      <circle cx="320" cy="220" r="2.2"/>
+      <circle cx="780" cy="220" r="2.4"/>
+      <circle cx="830" cy="280" r="2.0"/>
+      <circle cx="740" cy="180" r="1.6"/>
+    </g>
+  </g>
+</svg>
+

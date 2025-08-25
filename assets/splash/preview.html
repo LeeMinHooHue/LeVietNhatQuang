@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather App Splash Preview</title>
+  <style>
+    :root { --bg: #0b0e14; --card: #111722; --muted: #9aa4b2; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif; background: var(--bg); color: #e6edf3; }
+    header { padding: 16px 20px; border-bottom: 1px solid #202938; position: sticky; top: 0; background: rgba(11,14,20,0.85); backdrop-filter: blur(10px); }
+    header h1 { margin: 0; font-size: 16px; font-weight: 600; }
+    header .hint { color: var(--muted); font-size: 12px; margin-top: 4px; }
+    main { padding: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+    .card { background: var(--card); border: 1px solid #202938; border-radius: 16px; overflow: hidden; }
+    .card header { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border: 0; background: #0f1420; }
+    .card header h2 { margin: 0; font-size: 14px; font-weight: 600; }
+    .card header .size { color: var(--muted); font-size: 12px; }
+    .art { aspect-ratio: 1 / 1; display: grid; place-items: center; background: #0f1420; }
+    .art.light { background: #e9f3ff; }
+    .art.dark { background: #0f1420; }
+    .art img { width: 100%; height: 100%; object-fit: contain; }
+    footer { padding: 16px; font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .row { display: flex; gap: 12px; align-items: center; }
+    .btn { appearance: none; border: 1px solid #2a3448; background: #121a29; color: #e6edf3; border-radius: 10px; font-size: 12px; padding: 8px 10px; cursor: pointer; }
+    .btn:hover { border-color: #34425d; }
+    .swap { display: inline-flex; gap: 8px; align-items: center; }
+  </style>
+  <script>
+    function swap(theme) {
+      const img = document.getElementById('art');
+      const wrap = document.getElementById('wrap');
+      if (theme === 'light') { img.src = './splash-light.svg'; wrap.className = 'art light'; }
+      if (theme === 'dark') { img.src = './splash-dark.svg'; wrap.className = 'art dark'; }
+    }
+    function downloadCurrent() {
+      const img = document.getElementById('art');
+      const a = document.createElement('a');
+      a.href = img.src; a.download = img.src.split('/').pop(); a.click();
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Weather App Splash Preview</h1>
+    <div class="hint">Toggle light/dark and right-click to inspect</div>
+  </header>
+  <main>
+    <section class="card">
+      <header>
+        <h2>Square 1024×1024</h2>
+        <span class="size">SVG</span>
+      </header>
+      <div id="wrap" class="art light">
+        <img id="art" src="./splash-light.svg" alt="Splash" />
+      </div>
+      <footer>
+        <div class="row swap">
+          <button class="btn" onclick="swap('light')">Light</button>
+          <button class="btn" onclick="swap('dark')">Dark</button>
+        </div>
+        <div class="row">
+          <button class="btn" onclick="downloadCurrent()">Download</button>
+          <a class="btn" href="./splash-light.svg" download>Light SVG</a>
+          <a class="btn" href="./splash-dark.svg" download>Dark SVG</a>
+        </div>
+      </footer>
+    </section>
+  </main>
+</body>
+</html>
+
